@@ -286,8 +286,41 @@ function initProjectFilters() {
       buttons.forEach((b) => b.classList.remove('filter-btn--active'));
       btn.classList.add('filter-btn--active');
       renderProjects(filter);
+      updateSwipeDotsCount();
     });
   });
+}
+
+function updateSwipeDotsCount() {
+  const grid = document.getElementById('projects-grid');
+  const dotsContainer = document.querySelector('.mobile-swipe-hint__dots');
+  if (!grid || !dotsContainer) return;
+  const cards = grid.querySelectorAll('.project-card');
+  dotsContainer.innerHTML = Array.from(cards)
+    .map((_, i) => `<span class="swipe-dot ${i === 0 ? 'swipe-dot--active' : ''}"></span>`)
+    .join('');
+}
+
+function initProjectSwipeListener() {
+  const grid = document.getElementById('projects-grid');
+  const dotsContainer = document.querySelector('.mobile-swipe-hint__dots');
+  if (!grid || !dotsContainer) return;
+
+  grid.addEventListener(
+    'scroll',
+    () => {
+      const cards = grid.querySelectorAll('.project-card');
+      if (!cards.length) return;
+      const cardWidth = cards[0].offsetWidth + 16;
+      const activeIndex = Math.min(cards.length - 1, Math.max(0, Math.round(grid.scrollLeft / cardWidth)));
+
+      const dots = dotsContainer.querySelectorAll('.swipe-dot');
+      dots.forEach((dot, idx) => {
+        dot.classList.toggle('swipe-dot--active', idx === activeIndex);
+      });
+    },
+    { passive: true }
+  );
 }
 
 // ============================================================
@@ -498,6 +531,7 @@ function init() {
   renderHeroStats();
   renderProjects();
   initProjectFilters();
+  initProjectSwipeListener();
   initTerminal();
   renderAcademicDetails();
   initAccordions();
