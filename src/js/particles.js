@@ -460,6 +460,21 @@ export class MorphingParticleCanvas {
     }
   }
 
+  pauseMotion() {
+    this.isPaused = true;
+    if (this.animationFrameId) {
+      cancelAnimationFrame(this.animationFrameId);
+      this.animationFrameId = null;
+    }
+    // Render current frame statically
+    this.render();
+  }
+
+  resumeMotion() {
+    this.isPaused = false;
+    this.start();
+  }
+
   destroy() {
     if (this.animationFrameId) cancelAnimationFrame(this.animationFrameId);
     if (this.resizeObserver) this.resizeObserver.disconnect();

@@ -301,11 +301,20 @@ function initTerminal() {
   const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
   async function typeLoop() {
+    if (!isMotionActive) {
+      el.textContent = terminalCommands[cmdIndex % terminalCommands.length];
+      return;
+    }
+
     const cmd = terminalCommands[cmdIndex % terminalCommands.length];
     el.textContent = '';
 
     // Typing
     for (let i = 0; i <= cmd.length; i++) {
+      if (!isMotionActive) {
+        el.textContent = cmd;
+        return;
+      }
       el.textContent = cmd.slice(0, i);
       await sleep(35 + Math.random() * 25);
     }
@@ -313,16 +322,23 @@ function initTerminal() {
 
     // Backspacing
     for (let i = cmd.length; i >= 0; i--) {
+      if (!isMotionActive) {
+        el.textContent = cmd;
+        return;
+      }
       el.textContent = cmd.slice(0, i);
       await sleep(15);
     }
     await sleep(400);
 
     cmdIndex++;
-    typeLoop();
+    if (isMotionActive) {
+      typeLoop();
+    }
   }
 
   typeLoop();
+  window.__resumeTerminal = typeLoop;
 }
 
 // ============================================================
@@ -409,6 +425,70 @@ function initFooter() {
 }
 
 // ============================================================
+// 10. Fixed Bottom-Right Motion Control Toggle
+// ============================================================
+let halftoneInstance = null;
+let particlesInstance = null;
+let isMotionActive = true;
+
+function initMotionControl() {
+  const btn = document.getElementById('motion-toggle-btn');
+  const bullet = document.getElementById('motion-toggle-bullet');
+  const text = document.getElementById('motion-toggle-text');
+  if (!btn) return;
+
+  const stored = localStorage.getItem('motion');
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  isMotionActive = stored ? stored === 'on' : !prefersReduced;
+
+  function updateMotionState(active) {
+    if (active) {
+      document.documentElement.removeAttribute('data-motion');
+      btn.classList.remove('fixed-motion-toggle--off');
+      btn.setAttribute('aria-pressed', 'true');
+      if (bullet) {
+        bullet.textContent = '■';
+        bullet.style.color = 'var(--accent-orange)';
+      }
+      if (text) {
+        text.textContent = 'MOTION ON';
+        text.style.color = 'var(--text-primary)';
+      }
+
+      // Resume particle & canvas engines
+      halftoneInstance?.resumeMotion?.();
+      particlesInstance?.resumeMotion?.();
+      window.__resumeTerminal?.();
+    } else {
+      document.documentElement.setAttribute('data-motion', 'off');
+      btn.classList.add('fixed-motion-toggle--off');
+      btn.setAttribute('aria-pressed', 'false');
+      if (bullet) {
+        bullet.textContent = '□';
+        bullet.style.color = 'var(--text-mono)';
+      }
+      if (text) {
+        text.textContent = 'MOTION OFF';
+        text.style.color = 'var(--text-mono)';
+      }
+
+      // Freeze particle undulating movement while keeping full page scroll & swipe active
+      halftoneInstance?.pauseMotion?.();
+      particlesInstance?.pauseMotion?.();
+    }
+  }
+
+  // Initial setup
+  updateMotionState(isMotionActive);
+
+  btn.addEventListener('click', () => {
+    isMotionActive = !isMotionActive;
+    localStorage.setItem('motion', isMotionActive ? 'on' : 'off');
+    updateMotionState(isMotionActive);
+  });
+}
+
+// ============================================================
 // Main Execution
 // ============================================================
 function init() {
@@ -426,16 +506,19 @@ function init() {
 
   // Initialize Canvases
   try {
-    new HalftonePortrait('halftone-canvas', '/hero-character.jpg');
+    halftoneInstance = new HalftonePortrait('halftone-canvas', '/hero-character.jpg');
   } catch (err) {
     console.error('Halftone initialization error:', err);
   }
 
   try {
-    new MorphingParticleCanvas('particle-canvas');
+    particlesInstance = new MorphingParticleCanvas('particle-canvas');
   } catch (err) {
     console.error('MorphingParticleCanvas initialization error:', err);
   }
+
+  // Initialize Motion Control Toggle
+  initMotionControl();
 }
 
 if (document.readyState === 'loading') {

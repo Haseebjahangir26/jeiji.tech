@@ -371,6 +371,41 @@ export class HalftonePortrait {
     }
   }
 
+  pauseMotion() {
+    this.isPaused = true;
+    if (this.animationFrameId) {
+      cancelAnimationFrame(this.animationFrameId);
+      this.animationFrameId = null;
+    }
+    this.renderStatic();
+  }
+
+  resumeMotion() {
+    this.isPaused = false;
+    this.start();
+  }
+
+  renderStatic() {
+    const ctx = this.ctx;
+    if (!ctx || !this.width) return;
+
+    ctx.clearRect(0, 0, this.width, this.height);
+    const len = this.dots.length;
+    for (let i = 0; i < len; i++) {
+      const d = this.dots[i];
+      d.x = d.ox;
+      d.y = d.oy;
+      d.vx = 0;
+      d.vy = 0;
+      d.orangeRatio = 0;
+      const alpha = Math.min(1, Math.max(0.18, d.lum * 0.85));
+      ctx.fillStyle = `rgba(244, 240, 234, ${alpha})`;
+      ctx.beginPath();
+      ctx.arc(d.ox, d.oy, d.baseRadius, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  }
+
   destroy() {
     if (this.animationFrameId) cancelAnimationFrame(this.animationFrameId);
     if (this.resizeObserver) this.resizeObserver.disconnect();
