@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Haseeb Jahangir — CS Student & Aspiring AI/ML Engineer | jeiji.tech</title>
-  <meta name="description" content="Haseeb Jahangir (JJ) — Computer Science student at COMSATS University Islamabad. Building projects in AI/ML, data science, and full-stack development. Explore my portfolio at jeiji.tech." />
+  <title>Haseeb Jahangir — CS Student &amp; Aspiring AI/ML Engineer | jeiji.tech</title>
+  <meta name="description" content="Personal developer portfolio of Haseeb Jahangir (JJ) — Dark editorial-technical portfolio combining machine learning, systems architecture, and generative particle physics." />
   <meta name="author" content="Haseeb Jahangir" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://jeiji.tech" />
 
-  <!-- Open Graph -->
+  <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Haseeb Jahangir — CS Student & Aspiring AI/ML Engineer" />
-  <meta property="og:description" content="Portfolio of Haseeb Jahangir (JJ) — Building projects in AI/ML, data science, and software development." />
+  <meta property="og:title" content="Haseeb Jahangir — CS Student &amp; Aspiring AI/ML Engineer" />
+  <meta property="og:description" content="Dark editorial-technical portfolio combining machine learning, systems architecture, and generative particle physics." />
   <meta property="og:url" content="https://jeiji.tech" />
   <meta property="og:site_name" content="jeiji.tech" />
   <meta property="og:image" content="https://jeiji.tech/og-image.jpg" />
@@ -21,244 +21,594 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Haseeb Jahangir — CS Student & Aspiring AI/ML Engineer" />
-  <meta name="twitter:description" content="Portfolio of Haseeb Jahangir (JJ) — Building projects in AI/ML, data science, and software development." />
+  <meta name="twitter:title" content="Haseeb Jahangir — CS Student &amp; Aspiring AI/ML Engineer" />
+  <meta name="twitter:description" content="Dark editorial-technical portfolio combining machine learning, systems architecture, and generative particle physics." />
   <meta name="twitter:image" content="https://jeiji.tech/og-image.jpg" />
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
-  <!-- Fonts -->
+  <!-- Typography: Instrument Serif + Inter + JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <!-- Styles -->
   <link rel="stylesheet" href="/src/styles/index.css" />
 </head>
 <body>
-  <!-- Skip link -->
+  <!-- Accessibility Skip Navigation -->
   <a href="#main-content" class="skip-link" id="skip-nav">Skip to main content</a>
 
-  <!-- Scroll progress -->
-  <div class="scroll-progress" id="scroll-progress" aria-hidden="true">
-    <div class="scroll-progress__bar" id="scroll-progress-bar"></div>
+  <!-- Fixed Top Scroll Progress Bar -->
+  <div class="scroll-progress-bar" id="scroll-progress-bar" aria-hidden="true"></div>
+
+  <!-- 4 Fixed Full-Height Vertical Background Grid Lines -->
+  <div class="bg-blueprint-grid" aria-hidden="true">
+    <div class="bg-blueprint-grid__line"></div>
+    <div class="bg-blueprint-grid__line"></div>
+    <div class="bg-blueprint-grid__line"></div>
+    <div class="bg-blueprint-grid__line"></div>
   </div>
 
-  <!-- Navigation -->
-  <header class="header" id="header">
-    <nav class="nav container" aria-label="Primary navigation">
-      <a href="#" class="nav__logo" aria-label="JJ — Home">
-        <span class="nav__logo-text">JJ</span>
-        <span class="nav__logo-dot">.</span>
+
+  <!-- Auto-Hiding Pill Navbar -->
+  <header class="pill-navbar" id="pill-navbar" aria-label="Main navigation">
+    <a href="#" class="pill-navbar__logo" aria-label="Haseeb Jahangir — Home">
+      <span>JJ</span><span class="pill-navbar__logo-dot">.</span>
+    </a>
+    <ul class="pill-navbar__links" role="list">
+      <li><a href="#about" class="pill-navbar__link" data-nav="about">01 / About</a></li>
+      <li><a href="#work" class="pill-navbar__link" data-nav="work">02 / Work</a></li>
+      <li><a href="#systems" class="pill-navbar__link" data-nav="systems">03 / Physics</a></li>
+      <li><a href="#academic" class="pill-navbar__link" data-nav="academic">04 / Curriculum</a></li>
+      <li><a href="#contact" class="pill-navbar__link" data-nav="contact">05 / Contact</a></li>
+    </ul>
+    <div class="pill-navbar__cta">
+      <a href="#contact" class="pill-btn pill-btn--primary">
+        Transmission <span class="arrow-nudge">↗</span>
       </a>
-      <ul class="nav__links" id="nav-links" role="list">
-        <li><a href="#about" class="nav__link">About</a></li>
-        <li><a href="#projects" class="nav__link">Projects</a></li>
-        <li><a href="#skills" class="nav__link">Skills</a></li>
-        <li><a href="#education" class="nav__link">Education</a></li>
-        <li><a href="#contact" class="nav__link">Contact</a></li>
-      </ul>
-      <div class="nav__actions">
-        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode" type="button">
-          <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <circle cx="12" cy="12" r="5" /><line x1="12" y1="1" x2="12" y2="3" /><line x1="12" y1="21" x2="12" y2="23" /><line x1="4.22" y1="4.22" x2="5.64" y2="5.64" /><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" /><line x1="1" y1="12" x2="3" y2="12" /><line x1="21" y1="12" x2="23" y2="12" /><line x1="4.22" y1="19.78" x2="5.64" y2="18.36" /><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
-          </svg>
-          <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-          </svg>
-        </button>
-        <button class="nav__hamburger" id="nav-hamburger" aria-label="Toggle menu" aria-expanded="false" type="button">
-          <span class="nav__hamburger-line"></span>
-          <span class="nav__hamburger-line"></span>
-          <span class="nav__hamburger-line"></span>
-        </button>
-      </div>
-    </nav>
+    </div>
+    <button class="pill-navbar__toggle" id="pill-navbar-toggle" aria-label="Toggle menu" aria-expanded="false" type="button">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
   </header>
 
+  <!-- Mobile Drawer -->
+  <div class="mobile-nav-drawer" id="mobile-nav-drawer" aria-hidden="true">
+    <ul class="mobile-nav-drawer__links" role="list">
+      <li><a href="#about" class="mobile-nav-drawer__link">01 / Philosophy</a></li>
+      <li><a href="#work" class="mobile-nav-drawer__link">02 / Selected Work</a></li>
+      <li><a href="#systems" class="mobile-nav-drawer__link">03 / Kinetic Lab</a></li>
+      <li><a href="#academic" class="mobile-nav-drawer__link">04 / Academic</a></li>
+      <li><a href="#contact" class="mobile-nav-drawer__link">05 / Contact</a></li>
+    </ul>
+    <button class="pill-btn" id="mobile-drawer-close" type="button">Close Drawer [×]</button>
+  </div>
+
   <main id="main-content">
-    <!-- Hero Section -->
-    <section class="hero" id="hero" aria-label="Introduction">
-      <div class="hero__container container">
-        <div class="hero__content">
-          <div class="hero__greeting reveal">
-            <span class="hero__greeting-line"></span>
-            <span class="hero__greeting-text">Hi, I'm</span>
+    <!-- ============================================================
+         Hero Section — Centered Signature Presence
+         ============================================================ -->
+    <section class="hero hero--editorial-presence" id="hero" aria-label="Haseeb Jahangir — Introduction">
+      <div class="container hero__container">
+        <!-- Top Blueprint Telemetry Line -->
+        <div class="hero__meta-top">
+          <div class="hero__meta-tag">
+            <span class="mono-label__bullet">■</span>
+            <span>CS STUDENT. ML ENGINEER. BUILDER.</span>
           </div>
-          <h1 class="hero__name reveal">Haseeb Jahangir</h1>
-          <p class="hero__title reveal">Computer Science Student &amp; Aspiring AI/ML Engineer</p>
-          <p class="hero__bio reveal">
-            I build practical projects in machine learning, data science, and software engineering.
-            Currently studying at COMSATS University Islamabad, exploring how technology can solve real-world problems.
-          </p>
-          <div class="hero__cta reveal">
-            <a href="#projects" class="btn btn--primary" id="hero-projects-btn">View Projects</a>
-            <a href="#contact" class="btn btn--outline" id="hero-contact-btn">Get in Touch</a>
-          </div>
-          <div class="hero__social reveal">
-            <a href="https://github.com/haseebjahangir26" target="_blank" rel="noopener noreferrer" class="hero__social-link" aria-label="GitHub profile">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-            </a>
+          <div class="hero__meta-tag hero__meta-tag--right">
+            <span>BASED IN ISLAMABAD // THINKING BEYOND</span>
           </div>
         </div>
-        <div class="hero__visual reveal">
-          <div class="hero__terminal" aria-hidden="true">
-            <div class="terminal__header">
-              <div class="terminal__dots">
-                <span class="terminal__dot terminal__dot--red"></span>
-                <span class="terminal__dot terminal__dot--yellow"></span>
-                <span class="terminal__dot terminal__dot--green"></span>
-              </div>
-              <span class="terminal__title">terminal</span>
-            </div>
-            <div class="terminal__body">
-              <div class="terminal__line">
-                <span class="terminal__prompt">$</span>
-                <span class="terminal__text" id="terminal-text"></span>
-                <span class="terminal__cursor">▋</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="hero__bg-glow" aria-hidden="true"></div>
-    </section>
 
-    <!-- About Section -->
-    <section class="section about" id="about" aria-labelledby="about-heading">
-      <div class="container">
-        <div class="section__header reveal">
-          <span class="section__number">01.</span>
-          <h2 class="section__title" id="about-heading">About Me</h2>
-          <div class="section__line"></div>
-        </div>
-        <div class="about__content">
-          <div class="about__text reveal">
-            <p>
-              I'm a Computer Science student at <strong>COMSATS University Islamabad</strong>, driven by curiosity for artificial intelligence, machine learning, and building practical software that solves real problems.
+        <!-- Central Immersive Composition -->
+        <div class="hero__stage">
+          <!-- Left Floating Blueprint Stack -->
+          <div class="hero__sidebar-left" aria-hidden="true">
+            <div class="hero__sidebar-item">01 / PRESENCE</div>
+            <div class="hero__sidebar-cross">+</div>
+            <div class="hero__sidebar-keywords">
+              <span>ENGINEERING</span>
+              <span>MACHINE LEARNING</span>
+              <span>HUMAN CONNECTION</span>
+            </div>
+          </div>
+
+          <!-- Central Portrait Canvas Container (High-Density Halftone Grains) -->
+          <div class="hero__portrait-backdrop" id="portrait-card" aria-label="Interactive Halftone Portrait of Haseeb Jahangir">
+            <canvas id="halftone-canvas" class="hero__halftone-canvas" aria-label="High-density grain portrait reacting to cursor and dissolving on scroll"></canvas>
+            <div class="hero__portrait-vignette"></div>
+          </div>
+
+          <!-- Superimposed Signature Name -->
+          <div class="hero__centerpiece">
+            <h1 class="hero__signature-name reveal-blur">
+              <span class="name-roman">Haseeb</span> <span class="name-italic reveal-blur__stagger">Jahangir</span>
+            </h1>
+
+            <p class="hero__narrative">
+              I build practical ML systems, explore software architecture, and turn complex data into working products.
             </p>
-            <p>
-              I enjoy turning ideas into working projects — from data-driven dashboards and predictive models to full-stack applications. I'm always exploring new technologies and refining my engineering skills.
-            </p>
-            <p>
-              My long-term goal is to build impactful products and pursue international engineering opportunities, particularly in AI/ML and software development.
-            </p>
-          </div>
-          <div class="about__avatar reveal">
-            <div class="about__avatar-frame">
-              <div class="about__avatar-initials" aria-label="JJ avatar">JJ</div>
+
+            <div class="hero__action-buttons">
+              <a href="#work" class="pill-btn pill-btn--primary">
+                Explore my work <span class="arrow-nudge">↓</span>
+              </a>
+              <a href="#contact" class="pill-btn">
+                Start a conversation <span class="arrow-nudge">↗</span>
+              </a>
             </div>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- Projects Section -->
-    <section class="section projects" id="projects" aria-labelledby="projects-heading">
-      <div class="container">
-        <div class="section__header reveal">
-          <span class="section__number">02.</span>
-          <h2 class="section__title" id="projects-heading">Featured Projects</h2>
-          <div class="section__line"></div>
-        </div>
-        <div class="projects__filters reveal" role="group" aria-label="Filter projects by category">
-          <button class="projects__filter projects__filter--active" data-filter="all" id="filter-all">All</button>
-          <button class="projects__filter" data-filter="ml" id="filter-ml">Machine Learning</button>
-          <button class="projects__filter" data-filter="web" id="filter-web">Web / Data</button>
-        </div>
-        <div class="projects__grid" id="projects-grid">
-          <!-- Cards injected by JS from data file -->
-        </div>
-      </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section class="section skills" id="skills" aria-labelledby="skills-heading">
-      <div class="container">
-        <div class="section__header reveal">
-          <span class="section__number">03.</span>
-          <h2 class="section__title" id="skills-heading">Technical Skills</h2>
-          <div class="section__line"></div>
-        </div>
-        <div class="skills__grid" id="skills-grid">
-          <!-- Injected by JS -->
-        </div>
-      </div>
-    </section>
-
-    <!-- Education Section -->
-    <section class="section education" id="education" aria-labelledby="education-heading">
-      <div class="container">
-        <div class="section__header reveal">
-          <span class="section__number">04.</span>
-          <h2 class="section__title" id="education-heading">Education</h2>
-          <div class="section__line"></div>
-        </div>
-        <div class="education__card reveal">
-          <div class="education__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15v3.75m0 0v1.5a1.5 1.5 0 001.5 1.5h7.5a1.5 1.5 0 001.5-1.5v-1.5m-10.5 0h10.5" /></svg>
-          </div>
-          <div class="education__details">
-            <h3 class="education__degree">Bachelor of Science in Computer Science</h3>
-            <p class="education__university">COMSATS University Islamabad</p>
-            <p class="education__period">Expected Graduation: 2028</p>
-            <div class="education__coursework">
-              <h4 class="education__coursework-title">Relevant Coursework</h4>
-              <ul class="education__coursework-list" role="list">
-                <li>Data Structures &amp; Algorithms</li>
-                <li>Database Systems</li>
-                <li>Operating Systems</li>
-                <li>Computer Organization &amp; Assembly Language</li>
-                <li>Machine Learning</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="section contact" id="contact" aria-labelledby="contact-heading">
-      <div class="container">
-        <div class="section__header reveal">
-          <span class="section__number">05.</span>
-          <h2 class="section__title" id="contact-heading">Get in Touch</h2>
-          <div class="section__line"></div>
-        </div>
-        <div class="contact__content reveal">
-          <p class="contact__text">
-            I'm currently open to internship opportunities, collaborations, and conversations about AI/ML, software engineering, or anything tech-related. Feel free to reach out!
-          </p>
-          <a href="mailto:haseebjahangir.dev@gmail.com" class="btn btn--primary btn--lg" id="contact-email-btn">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" class="btn__icon"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-            Say Hello
+        <!-- Bottom Blueprint Discover Bar -->
+        <div class="hero__meta-bottom">
+          <a href="#work" class="hero__scroll-indicator">
+            <span>SCROLL TO DISCOVER</span> <span class="arrow-nudge">↓</span>
           </a>
-          <p class="contact__email-note">
-            <small>Email: <a href="mailto:haseebjahangir.dev@gmail.com" class="contact__email-link">haseebjahangir.dev@gmail.com</a></small>
-          </p>
-          <div class="contact__social">
-            <a href="https://github.com/haseebjahangir26" target="_blank" rel="noopener noreferrer" class="contact__social-link" aria-label="GitHub" id="contact-github">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-              GitHub
-            </a>
+          <div class="hero__bottom-center">
+            BUILDING &amp; LEARNING // CS @ COMSATS
+          </div>
+          <div class="hero__bottom-right">
+            <span>AN ONGOING EXPLORATION</span>
+            <span class="hero__motion-badge">■ MOTION ON</span>
+          </div>
+        </div>
+
+        <!-- Grounded Numbers Section (Real, Honest Metrics) -->
+        <div class="hero__metrics-strip" id="hero-stats-container">
+          <!-- Populated dynamically from portfolio.js with 5+ Real Projects, BSCS COMSATS, 100% Open Source -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         Section 01: The Person Behind the Work (Philosophy & Architecture)
+         ============================================================ -->
+    <section class="section about" id="about" aria-labelledby="heading-about">
+      <div class="container">
+        <!-- Blueprint Divider -->
+        <div class="section-blueprint-divider">
+          <div class="section-blueprint-divider__index">
+            <span class="section-blueprint-divider__bullet">■</span>
+            <span>01 / THE PERSON BEHIND THE WORK</span>
+          </div>
+          <div class="section-blueprint-divider__tag">DISCIPLINE // AI &amp; SYSTEMS</div>
+        </div>
+
+        <!-- Asymmetric 12-Column Split -->
+        <div class="editorial-split-grid">
+          <!-- Left: Sticky Two-Tone Serif Headline -->
+          <div class="editorial-split-grid__left editorial-split-grid__left--sticky">
+            <div class="mono-label">
+              <span class="mono-label__bullet">■</span>
+              <span>PHILOSOPHY &amp; APPROACH</span>
+            </div>
+            <h2 class="editorial-heading editorial-heading--h2 reveal-blur" id="heading-about">
+              <span class="editorial-heading__line-1">A Dual Mindset.</span>
+              <span class="editorial-heading__line-2 reveal-blur__stagger">Mathematics &amp; Craft.</span>
+            </h2>
+            <p class="editorial-body">
+              Engineering impactful intelligence demands both deep theoretical mastery and obsessive attention to system architecture.
+            </p>
+          </div>
+
+          <!-- Right: Narrative & Principles & Developer Terminal -->
+          <div class="editorial-split-grid__right">
+            <p class="editorial-body">
+              I am a Computer Science student at <strong>COMSATS University Islamabad</strong>, deeply driven by the intersection of probabilistic machine learning, algorithmic efficiency, and scalable software systems.
+            </p>
+            <p class="editorial-body">
+              Rather than treating algorithms as black boxes, I focus on the underlying mechanics: loss landscapes, linear algebra, memory hierarchies, and vectorization. Every project is an exercise in building reliable, empirical solutions capable of real-world deployment.
+            </p>
+
+            <!-- 3 Architectural Principles -->
+            <div class="principles-grid">
+              <div class="principle-box">
+                <div class="principle-box__idx">01 // RIGOR</div>
+                <h3 class="principle-box__title">Rigorous Fundamentals</h3>
+                <p class="principle-box__text">
+                  Deep foundations in Data Structures, Discrete Math, Database Systems, and Operating System concurrency.
+                </p>
+              </div>
+
+              <div class="principle-box">
+                <div class="principle-box__idx">02 // DATA</div>
+                <h3 class="principle-box__title">Data-First Pragmatism</h3>
+                <p class="principle-box__text">
+                  Building deterministic ETL pipelines and evaluating models through strict cross-validation and ROC metrics.
+                </p>
+              </div>
+
+              <div class="principle-box">
+                <div class="principle-box__idx">03 // AMBITION</div>
+                <h3 class="principle-box__title">Global Impact</h3>
+                <p class="principle-box__text">
+                  Targeting international opportunities in AI/ML engineering, high-throughput backend systems, and research.
+                </p>
+              </div>
+            </div>
+
+            <!-- Blueprint Developer Terminal -->
+            <div class="blueprint-terminal" aria-label="Interactive developer workflow simulation">
+              <div class="blueprint-terminal__header">
+                <div class="blueprint-terminal__dots">
+                  <span class="blueprint-terminal__dot"></span>
+                  <span class="blueprint-terminal__dot"></span>
+                  <span class="blueprint-terminal__dot"></span>
+                </div>
+                <span>CONSOLE // TELEMETRY_STREAM</span>
+                <span>BASH 5.2</span>
+              </div>
+              <div class="blueprint-terminal__body">
+                <span class="blueprint-terminal__prompt">$</span>
+                <span class="blueprint-terminal__text" id="terminal-text">python train_forecaster.py --dataset=grid_consumption</span>
+                <span class="blueprint-terminal__cursor">▋</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         Section 02: Selected Work (Projects)
+         ============================================================ -->
+    <section class="section work" id="work" aria-labelledby="heading-work">
+      <div class="container">
+        <!-- Blueprint Divider -->
+        <div class="section-blueprint-divider">
+          <div class="section-blueprint-divider__index">
+            <span class="section-blueprint-divider__bullet">■</span>
+            <span>02 / SELECTED WORK</span>
+          </div>
+          <div class="section-blueprint-divider__tag">CATALOG // 04 ARTIFACTS</div>
+        </div>
+
+        <!-- Asymmetric 12-Column Split -->
+        <div class="editorial-split-grid">
+          <!-- Left: Sticky Two-Tone Serif Headline -->
+          <div class="editorial-split-grid__left editorial-split-grid__left--sticky">
+            <div class="mono-label">
+              <span class="mono-label__bullet">■</span>
+              <span>ENGINEERED ARTIFACTS</span>
+            </div>
+            <h2 class="editorial-heading editorial-heading--h2 reveal-blur" id="heading-work">
+              <span class="editorial-heading__line-1">Built for Rigor.</span>
+              <span class="editorial-heading__line-2 reveal-blur__stagger">Validated by Data.</span>
+            </h2>
+            <p class="editorial-body">
+              Production-ready applications spanning machine learning pipelines, classification systems, and high-velocity discovery engines.
+            </p>
+
+            <!-- Category Filter Tabs -->
+            <div class="projects-filter-bar" role="group" aria-label="Filter projects by discipline">
+              <button class="filter-btn filter-btn--active" data-filter="all" id="filter-all" type="button">All [04]</button>
+              <button class="filter-btn" data-filter="ml" id="filter-ml" type="button">Machine Learning</button>
+              <button class="filter-btn" data-filter="web" id="filter-web" type="button">Systems &amp; Data</button>
+            </div>
+          </div>
+
+          <!-- Right: 2-Column Sharp-Cornered Project Cards -->
+          <div class="editorial-split-grid__right">
+            <div class="projects-grid" id="projects-grid">
+              <!-- Dynamically populated from portfolio.js -->
+            </div>
+
+            <!-- Fast Scan Project Rows Table -->
+            <div class="project-rows-table" id="project-rows-table" aria-label="Tabular overview of portfolio artifacts">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         Section 03: 3-State Morphing Particle Canvas (Interactive Systems)
+         ============================================================ -->
+    <section class="section systems" id="systems" aria-labelledby="heading-systems">
+      <div class="container">
+        <!-- Blueprint Divider -->
+        <div class="section-blueprint-divider">
+          <div class="section-blueprint-divider__index">
+            <span class="section-blueprint-divider__bullet">■</span>
+            <span>03 / INTERACTIVE SYSTEMS</span>
+          </div>
+          <div class="section-blueprint-divider__tag">CANVAS // 3D HYBRID ENGINE</div>
+        </div>
+
+        <!-- Asymmetric 12-Column Split -->
+        <div class="editorial-split-grid">
+          <!-- Left: Sticky Two-Tone Serif Headline -->
+          <div class="editorial-split-grid__left editorial-split-grid__left--sticky">
+            <div class="mono-label">
+              <span class="mono-label__bullet">■</span>
+              <span>GENERATIVE DIMENSIONS</span>
+            </div>
+            <h2 class="editorial-heading editorial-heading--h2 reveal-blur" id="heading-systems">
+              <span class="editorial-heading__line-1">Kinetic Physics.</span>
+              <span class="editorial-heading__line-2 reveal-blur__stagger">Mathematical Substrates.</span>
+            </h2>
+            <p class="editorial-body">
+              Explore 3 generative topological configurations representing core engineering disciplines. Switch modes below to morph the 1,156-particle system in real time.
+            </p>
+
+            <!-- Mode Selector Tab Bar -->
+            <div class="particle-lab__tabs" role="tablist" aria-label="Particle state configurations">
+              <button class="particle-tab particle-tab--active" data-state="build" id="tab-build" role="tab" aria-selected="true" type="button">
+                <span class="particle-tab__index">01</span>
+                <span>Build</span>
+              </button>
+              <button class="particle-tab" data-state="teach" id="tab-teach" role="tab" aria-selected="false" type="button">
+                <span class="particle-tab__index">02</span>
+                <span>Teach</span>
+              </button>
+              <button class="particle-tab" data-state="connect" id="tab-connect" role="tab" aria-selected="false" type="button">
+                <span class="particle-tab__index">03</span>
+                <span>Connect</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Right: Interactive Canvas & Crossfading Caption Box -->
+          <div class="editorial-split-grid__right">
+            <div class="particle-lab" id="particle-lab-card">
+              <span class="corner-cross corner-cross--tl">+</span>
+              <span class="corner-cross corner-cross--tr">+</span>
+              <span class="corner-cross corner-cross--bl">+</span>
+              <span class="corner-cross corner-cross--br">+</span>
+
+              <div class="particle-lab__header">
+                <span class="mono-label" style="margin-bottom:0">
+                  <span class="mono-label__bullet">■</span>
+                  <span id="particle-mode-code">MODE // 01 : STRUCTURE</span>
+                </span>
+                <span class="mono-label" id="particle-mode-badge" style="margin-bottom:0">
+                  3D SINE-WAVE GRID // FREQ: 0.038
+                </span>
+              </div>
+
+              <div class="particle-lab__canvas-wrap">
+                <canvas id="particle-canvas" class="particle-lab__canvas" aria-label="3D Morphing particle canvas responding to cursor repulsion"></canvas>
+                <div class="particle-lab__hud">
+                  <div>FPS // 60.0</div>
+                  <div>NODES // 1,156</div>
+                  <div class="particle-lab__hud-active">● REPEL ACTIVE</div>
+                </div>
+              </div>
+
+              <!-- Crossfading Editorial Caption -->
+              <div class="particle-lab__caption" id="particle-caption-wrap">
+                <div class="particle-caption-headline" id="particle-mode-headline">
+                  Undulating Tensor Manifold
+                </div>
+                <div class="particle-caption-desc" id="particle-mode-desc">
+                  Architecting resilient algorithmic foundations. 3D undulating tensor manifolds mapped through continuous sinusoidal transforms, visualizing the mathematical substrate of deep representation learning.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         Section 04: Academic Foundation & Curriculum
+         ============================================================ -->
+    <section class="section academic" id="academic" aria-labelledby="heading-academic">
+      <div class="container">
+        <!-- Blueprint Divider -->
+        <div class="section-blueprint-divider">
+          <div class="section-blueprint-divider__index">
+            <span class="section-blueprint-divider__bullet">■</span>
+            <span>04 / CURRICULUM &amp; CAPABILITIES</span>
+          </div>
+          <div class="section-blueprint-divider__tag">COMSATS UNIVERSITY ISLAMABAD</div>
+        </div>
+
+        <!-- Asymmetric 12-Column Split -->
+        <div class="editorial-split-grid">
+          <!-- Left: Sticky Two-Tone Serif Headline -->
+          <div class="editorial-split-grid__left editorial-split-grid__left--sticky">
+            <div class="mono-label">
+              <span class="mono-label__bullet">■</span>
+              <span>ACADEMIC FOUNDATION</span>
+            </div>
+            <h2 class="editorial-heading editorial-heading--h2 reveal-blur" id="heading-academic">
+              <span class="editorial-heading__line-1">Academic Rigor.</span>
+              <span class="editorial-heading__line-2 reveal-blur__stagger">Technical Depth.</span>
+            </h2>
+            <p class="editorial-body">
+              Structured undergraduate training in theoretical computer science, complemented by continuous independent engineering and predictive modeling research.
+            </p>
+
+            <div class="hero-stat-block" style="margin-top: 1.5rem;">
+              <div class="hero-stat-block__value">
+                <span>2028</span><span class="hero-stat-block__operator">■</span>
+              </div>
+              <div class="hero-stat-block__label">EXPECTED GRADUATION</div>
+              <div class="hero-stat-block__desc">BSCS — COMSATS University Islamabad</div>
+            </div>
+          </div>
+
+          <!-- Right: Degree Card, Timeline, and Interactive Accordions -->
+          <div class="editorial-split-grid__right">
+            <!-- Degree Banner -->
+            <div class="degree-banner">
+              <span class="corner-cross corner-cross--tl">+</span>
+              <span class="corner-cross corner-cross--tr">+</span>
+              <div class="degree-banner__degree">Bachelor of Science in Computer Science</div>
+              <div class="degree-banner__institution">COMSATS University Islamabad</div>
+              <div class="degree-banner__meta">
+                <span>CAMPUS // ISLAMABAD</span>
+                <span>STATUS // FULL-TIME</span>
+                <span>SPECIALIZATION // AI/ML &amp; SYSTEMS</span>
+              </div>
+            </div>
+
+            <!-- Blueprint Vertical Timeline -->
+            <div class="timeline" aria-label="Academic and engineering progression">
+              <div class="timeline-item">
+                <div class="timeline-item__dot"></div>
+                <div class="timeline-item__date">2024 — PRESENT</div>
+                <h3 class="timeline-item__title">Undergraduate Computer Science</h3>
+                <p class="timeline-item__desc">
+                  Building deep mathematical and computational grounding in Data Structures, Database Systems, Computer Architecture, and Machine Learning.
+                </p>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-item__dot"></div>
+                <div class="timeline-item__date">CONTINUOUS INITIATIVE</div>
+                <h3 class="timeline-item__title">Independent Applied AI/ML Projects</h3>
+                <p class="timeline-item__desc">
+                  Developing anomaly detection algorithms, churn classification pipelines, and business intelligence suites utilizing Python and scikit-learn.
+                </p>
+              </div>
+            </div>
+
+            <!-- Interactive +/- Accordions -->
+            <div class="accordion-group" id="academic-accordions">
+              <!-- Coursework Accordion -->
+              <div class="accordion-item accordion-item--open" id="accordion-coursework">
+                <button class="accordion-trigger" type="button" aria-expanded="true">
+                  <span class="accordion-trigger__title">
+                    <span class="accordion-trigger__idx">01</span>
+                    <span>Core Computer Science Curriculum</span>
+                  </span>
+                  <span class="accordion-trigger__icon" aria-hidden="true">+</span>
+                </button>
+                <div class="accordion-content">
+                  <ul class="accordion-course-list" role="list" id="course-list-container">
+                    <!-- Injected dynamically -->
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Technical Stack Accordion -->
+              <div class="accordion-item" id="accordion-stack">
+                <button class="accordion-trigger" type="button" aria-expanded="false">
+                  <span class="accordion-trigger__title">
+                    <span class="accordion-trigger__idx">02</span>
+                    <span>Technical Capabilities &amp; Toolchain</span>
+                  </span>
+                  <span class="accordion-trigger__icon" aria-hidden="true">+</span>
+                </button>
+                <div class="accordion-content">
+                  <div class="skills-chip-grid" id="skills-chip-container">
+                    <!-- Injected dynamically -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         Section 05: Transmission / Contact
+         ============================================================ -->
+    <section class="section contact" id="contact" aria-labelledby="heading-contact">
+      <div class="container">
+        <!-- Blueprint Divider -->
+        <div class="section-blueprint-divider">
+          <div class="section-blueprint-divider__index">
+            <span class="section-blueprint-divider__bullet">■</span>
+            <span>05 / INITIATE TRANSMISSION</span>
+          </div>
+          <div class="section-blueprint-divider__tag">AVAILABILITY // OPEN</div>
+        </div>
+
+        <!-- Asymmetric 12-Column Split -->
+        <div class="editorial-split-grid">
+          <!-- Left: Sticky Two-Tone Serif Headline -->
+          <div class="editorial-split-grid__left editorial-split-grid__left--sticky">
+            <div class="mono-label">
+              <span class="mono-label__bullet">■</span>
+              <span>COLLABORATION &amp; INQUIRY</span>
+            </div>
+            <h2 class="editorial-heading editorial-heading--h2 reveal-blur" id="heading-contact">
+              <span class="editorial-heading__line-1">Let's Build.</span>
+              <span class="editorial-heading__line-2 reveal-blur__stagger">Open to Global Opportunities.</span>
+            </h2>
+            <p class="editorial-body">
+              I am actively seeking software engineering internships, AI/ML research collaborations, and ambitious technical initiatives.
+            </p>
+          </div>
+
+          <!-- Right: Transmission Console Card -->
+          <div class="editorial-split-grid__right">
+            <div class="transmission-card">
+              <span class="corner-cross corner-cross--tl">+</span>
+              <span class="corner-cross corner-cross--tr">+</span>
+              <span class="corner-cross corner-cross--bl">+</span>
+              <span class="corner-cross corner-cross--br">+</span>
+
+              <div class="transmission-card__beacon-line">
+                <span class="hero__status-beacon" aria-hidden="true"></span>
+                <span>COMMUNICATION CHANNEL: ONLINE</span>
+              </div>
+
+              <h3 class="editorial-heading" style="font-size: 2.2rem; margin-bottom: 0.75rem;">
+                Have an ambitious problem to solve?
+              </h3>
+              <p class="editorial-body">
+                Whether you have an inquiry regarding machine learning systems, want to review my code artifacts, or wish to explore a collaboration, my inbox is directly accessible.
+              </p>
+
+              <div class="transmission-card__actions">
+                <a href="mailto:haseebjahangir.dev@gmail.com" class="pill-btn pill-btn--primary">
+                  Open Mail Client <span class="arrow-nudge">↗</span>
+                </a>
+                <button class="email-copy-btn" id="email-copy-btn" type="button" aria-label="Copy email address to clipboard">
+                  <span>haseebjahangir.dev@gmail.com</span>
+                  <span class="arrow-nudge">⎘</span>
+                </button>
+                <span class="toast-feedback" id="toast-feedback" aria-live="polite">✓ Copied to clipboard</span>
+              </div>
+
+              <div class="transmission-card__footer">
+                <div>LOCATION: ISLAMABAD, PAKISTAN [GMT+5]</div>
+                <div class="social-links">
+                  <a href="https://github.com/haseebjahangir26" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub Profile">
+                    GitHub <span class="arrow-nudge">↗</span>
+                  </a>
+                  <a href="https://jeiji.tech" class="social-link" aria-label="Live Domain">
+                    jeiji.tech <span class="arrow-nudge">↗</span>
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- Footer -->
-  <footer class="footer" role="contentinfo">
+  <!-- ============================================================
+       Site Footer
+       ============================================================ -->
+  <footer class="site-footer" role="contentinfo">
     <div class="container">
-      <div class="footer__content">
-        <p class="footer__text">
-          Designed &amp; built by <strong>Haseeb Jahangir</strong>
-        </p>
-        <p class="footer__copyright">
-          &copy; <span id="footer-year">2026</span> jeiji.tech
-        </p>
+      <div class="site-footer__inner">
+        <div>
+          <span>DESIGNED &amp; ARCHITECTED BY </span>
+          <strong style="color: var(--text-primary)">HASEEB JAHANGIR</strong>
+          <span> — &copy; <span id="footer-year">2026</span> JEIJI.TECH</span>
+        </div>
+        <div>
+          <button class="site-footer__scroll-top" id="scroll-to-top" type="button" aria-label="Scroll back to top">
+            <span>Back to Top</span> <span class="arrow-nudge">↑</span>
+          </button>
+        </div>
       </div>
     </div>
   </footer>

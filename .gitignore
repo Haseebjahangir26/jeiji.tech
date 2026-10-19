@@ -31,3 +31,5 @@ npm-debug.log*
 # Misc
 *.tgz
 coverage/
+*.mp4
+WhatsApp Image*.jpeg

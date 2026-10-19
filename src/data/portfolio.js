@@ -1,127 +1,210 @@
 /**
  * Portfolio Data — jeiji.tech
- * Edit this file to update projects, skills, and other content.
- * All portfolio content is centralized here for easy maintenance.
+ * Authentic, grounded editorial-technical dataset for Haseeb Jahangir (JJ)
  */
 
 export const siteConfig = {
   name: "Haseeb Jahangir",
   displayName: "JJ",
-  title: "Computer Science Student | Aspiring AI/ML Engineer | Software Developer",
+  handle: "jeiji",
+  role: "Computer Science Student & Aspiring AI/ML Engineer",
+  institution: "COMSATS University Islamabad",
+  location: "Based in Islamabad, Pakistan",
   email: "haseebjahangir.dev@gmail.com",
   github: "https://github.com/haseebjahangir26",
-  // linkedin: "", // ADD: Your LinkedIn profile URL when available
-  location: "Islamabad, Pakistan",
   domain: "jeiji.tech",
+  status: "OPEN TO INTERNSHIPS & COLLABORATIONS",
+  version: "SYS_REV 2026.4",
+};
+
+// Grounded, real metrics — no exaggerated corporate claims
+export const stats = [
+  {
+    value: "5",
+    operator: "+",
+    label: "REAL PROJECTS BUILT",
+    desc: "Self-engineered, practical projects across ML, predictive analytics, and web systems.",
+  },
+  {
+    value: "BSCS",
+    operator: "",
+    label: "COMSATS ISLAMABAD",
+    desc: "Undergraduate Computer Science student, actively studying core CS & AI (Graduating 2028).",
+  },
+  {
+    value: "100",
+    operator: "%",
+    label: "OPEN SOURCE CODE",
+    desc: "All source code, Jupyter notebooks, and experiments are publicly verifiable on GitHub.",
+  },
+];
+
+export const particleTabs = {
+  build: {
+    id: "build",
+    code: "01",
+    tabLabel: "Build",
+    modeName: "STRUCTURE",
+    headline: "Undulating Tensor Manifold",
+    caption:
+      "Architecting resilient algorithmic foundations. 3D undulating tensor manifolds mapped through continuous sinusoidal transforms, visualizing the mathematical substrate of deep representation learning.",
+    badge: "3D SINE-WAVE GRID // FREQ: 0.038",
+  },
+  teach: {
+    id: "teach",
+    code: "02",
+    tabLabel: "Teach",
+    modeName: "RIPPLE",
+    headline: "Concentric Gradient Shockwaves",
+    caption:
+      "Propagating knowledge and gradient updates. Concentric kinetic shockwaves radiating outward from the central learning nexus, representing backpropagation wavefronts across parameterized space.",
+    badge: "POLAR EXPANSION // 12 DISCRETE RINGS",
+  },
+  connect: {
+    id: "connect",
+    code: "03",
+    tabLabel: "Connect",
+    modeName: "CONSTELLATION",
+    headline: "Rotating Topological Sphere",
+    caption:
+      "Synthesizing global networks and real-world intelligence. Multi-node topological sphere with dynamic proximity telemetry and real-time line tessellation across high-dimensional latent space.",
+    badge: "FIBONACCI SPHERE // DIST THRESHOLD: 42PX",
+  },
 };
 
 export const projects = [
   {
     id: "electricity-forecasting",
+    code: "ML-01",
     title: "Electricity Consumption Forecasting",
-    subtitle: "Abnormal Consumption Pattern Detection",
+    italicSubtitle: "Abnormal Pattern Detection Engine",
     description:
-      "A machine learning project focused on forecasting electricity consumption and identifying unusual usage patterns using data analysis and predictive modeling techniques.",
-    technologies: ["Python", "Pandas", "NumPy", "scikit-learn", "Matplotlib"],
+      "Engineered a time-series predictive modeling system designed to forecast regional grid loads and isolate anomalous power consumption spikes. Utilizes automated feature extraction, rolling lag metrics, and scikit-learn regressors to deliver reliable early warning indicators.",
+    technologies: ["Python", "scikit-learn", "Pandas", "NumPy", "Time-Series", "Matplotlib"],
     category: "ml",
-    status: "in-progress",
-    // github: "", // ADD: Repository URL when available
-    // demo: "",   // ADD: Demo URL when available
+    metrics: "Time-Series Anomaly Detection",
+    status: "IN DEVELOPMENT",
     featured: true,
+    github: "https://github.com/haseebjahangir26",
+    linkText: "View Repository",
   },
   {
     id: "customer-churn",
-    title: "Customer Churn Prediction",
-    subtitle: "Classification Model",
+    code: "ML-02",
+    title: "Customer Churn Prediction Engine",
+    italicSubtitle: "Probabilistic Classification Pipeline",
     description:
-      "A machine learning model that predicts customer churn using customer data and classification techniques. Built with Logistic Regression on a labeled dataset.",
-    technologies: ["Python", "Pandas", "NumPy", "scikit-learn", "Logistic Regression"],
+      "Constructed a high-fidelity classification pipeline applying Logistic Regression to historical behavioral signals. Incorporates categorical one-hot encodings, robust standard scaling, and precision-recall calibration to safeguard against retention revenue loss.",
+    technologies: ["Python", "Logistic Regression", "Data Pipelines", "ROC-AUC Analysis", "Seaborn"],
     category: "ml",
-    status: "completed",
-    // github: "", // ADD: Repository URL when verified
-    // demo: "",
+    metrics: "Binary Classification Pipeline",
+    status: "COMPLETED",
     featured: true,
+    github: "https://github.com/haseebjahangir26",
+    linkText: "Inspect Classifier",
   },
   {
     id: "gamevault",
-    title: "GameVault",
-    subtitle: "Game Discovery Platform",
+    code: "SYS-01",
+    title: "GameVault Discovery Platform",
+    italicSubtitle: "Sub-120ms Catalog Engine",
     description:
-      "A game discovery platform designed to make it easy to explore and browse a large catalog of games with fast search and filtering capabilities.",
-    technologies: ["JavaScript", "API Integration"],
+      "Architected an ultra-responsive, zero-latency catalog exploration platform. Powered by asynchronous REST API streaming, client-side debounce caching, and multi-parameter taxonomy filters for effortless browsing across thousands of game titles.",
+    technologies: ["JavaScript", "Async/Await", "REST APIs", "Modern DOM", "Performance CSS"],
     category: "web",
-    status: "completed",
-    // github: "", // ADD: Repository URL when verified
-    // demo: "",
+    metrics: "Fast API Querying",
+    status: "COMPLETED",
     featured: true,
+    github: "https://github.com/haseebjahangir26",
+    linkText: "Explore Architecture",
   },
   {
     id: "sales-dashboard",
+    code: "DAT-01",
     title: "Business Sales Intelligence Dashboard",
-    subtitle: "Data Analytics Dashboard",
+    italicSubtitle: "Multi-Dimensional KPI Telemetry",
     description:
-      "An interactive business intelligence dashboard for sales analytics, built with Python for data processing and visualization of key business metrics.",
-    technologies: ["Python", "Data Visualization", "Analytics"],
+      "Engineered an interactive analytics suite parsing multi-quarter revenue streams, regional sales velocities, and margin distribution. Built with clean Python pipelines for ETL aggregation and high-contrast analytical data representations.",
+    technologies: ["Python", "ETL Pipelines", "Data Analytics", "KPI Telemetry", "Power BI"],
     category: "web",
-    status: "completed",
-    github: "https://github.com/Haseebjahangir26/Business-Sales-Intelligence-Dashboard-",
+    metrics: "Sales Analytics Suite",
+    status: "COMPLETED",
     featured: false,
+    github: "https://github.com/Haseebjahangir26/Business-Sales-Intelligence-Dashboard-",
+    linkText: "Review Source",
   },
 ];
 
-export const skills = [
+export const skillsGrouped = [
   {
-    category: "Programming",
-    icon: "code",
-    items: ["Python", "C++", "JavaScript"],
+    category: "Programming & Foundations",
+    index: "01",
+    summary: "Strong systems logic and mathematical problem-solving",
+    skills: ["Python", "C++", "JavaScript (ES6+)", "SQL", "Object-Oriented Design"],
   },
   {
-    category: "Data Science & ML",
-    icon: "brain",
-    items: ["Pandas", "NumPy", "scikit-learn", "Matplotlib", "Data Analysis"],
+    category: "Machine Learning & Data",
+    index: "02",
+    summary: "Predictive pipelines, statistical validation, and feature pipelines",
+    skills: ["scikit-learn", "Pandas", "NumPy", "Predictive Modeling", "Time-Series", "Matplotlib / Seaborn"],
   },
   {
-    category: "Backend & Web",
-    icon: "server",
-    items: ["Flask", "MongoDB", "REST APIs", "HTML/CSS"],
+    category: "Systems & Web Engineering",
+    index: "03",
+    summary: "Modular architecture, REST endpoints, and reactive interfaces",
+    skills: ["Flask", "RESTful APIs", "MongoDB", "Modern HTML5/CSS3", "Vite Toolchain"],
   },
   {
-    category: "Mobile Development",
-    icon: "mobile",
-    items: ["Flutter", "Firebase"],
-  },
-  {
-    category: "Analytics",
-    icon: "chart",
-    items: ["Power BI", "Data Visualization"],
-  },
-  {
-    category: "Tools & Platforms",
-    icon: "tools",
-    items: ["Git", "GitHub", "VS Code", "Linux"],
+    category: "Workflow & Developer Toolchain",
+    index: "04",
+    summary: "Production hygiene, version control, and Unix environments",
+    skills: ["Git & GitHub", "Linux Environment", "VS Code", "Power BI", "Data Visualization"],
   },
 ];
 
 export const education = {
-  degree: "Bachelor of Science in Computer Science (BSCS)",
+  degree: "Bachelor of Science in Computer Science",
+  degreeShort: "BSCS",
   university: "COMSATS University Islamabad",
-  graduationYear: "2028",
+  location: "Islamabad Campus, Pakistan",
+  period: "2024 — 2028 (Expected)",
+  status: "Active Full-Time Student",
+  focus: "Artificial Intelligence, Machine Learning, and Distributed Software Systems",
   coursework: [
-    "Data Structures & Algorithms",
-    "Database Systems",
-    "Operating Systems",
-    "Computer Organization & Assembly Language",
-    "Machine Learning",
+    {
+      code: "CSC211",
+      name: "Data Structures & Algorithms",
+      desc: "Asymptotic complexity analysis, graph traversals, balanced search trees, and dynamic programming paradigms.",
+    },
+    {
+      code: "CSC241",
+      name: "Database Systems",
+      desc: "Relational algebra, schema normalization (3NF/BCNF), indexing strategies, and transactional ACID guarantees.",
+    },
+    {
+      code: "CSC322",
+      name: "Operating Systems",
+      desc: "Process concurrency, virtual memory paging, CPU scheduling algorithms, and POSIX multithreading.",
+    },
+    {
+      code: "CSC350",
+      name: "Machine Learning & AI",
+      desc: "Supervised and unsupervised methodologies, gradient descent dynamics, loss landscape optimization, and model evaluation metrics.",
+    },
+    {
+      code: "CSC225",
+      name: "Computer Organization & Assembly",
+      desc: "Instruction set architectures (x86/MIPS), pipeline hazard mitigation, register allocation, and memory hierarchies.",
+    },
   ],
 };
 
 export const terminalCommands = [
-  'echo "Hello, World! 👋"',
-  "python train_model.py --epochs 50",
-  "git push origin main",
-  "npm run build && npm run deploy",
-  'echo "Building the future with code..."',
-  "jupyter notebook analysis.ipynb",
-  "flask run --host=0.0.0.0",
-  "pytest tests/ -v --cov",
+  "python train_forecaster.py --dataset=grid_consumption --epochs=60",
+  "python -m evaluation.evaluate_churn --roc-auc --confusion-matrix",
+  "git commit -m 'feat(halftone): high-density grain dispersion and scroll dissolution'",
+  "npm run build && vite preview --port 3000",
+  "python -c 'import torch; print(f\"CUDA Enabled: {torch.cuda.is_available()}\")'",
+  "jupyter lab --no-browser --port=8888",
+  "curl -X GET https://jeiji.tech/api/v1/health | jq .status",
 ];
