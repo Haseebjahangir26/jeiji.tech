@@ -5,16 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>404 — Page Not Found | jeiji.tech</title>
   <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#080808" />
+  <meta name="color-scheme" content="dark" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #0a0e1a;
-      --fg: #e8ecf4;
-      --muted: #64748b;
-      --accent: #22d3ee;
+      --bg: #080808;
+      --surface: #111110;
+      --fg: #F4F0EA;
+      --muted: #9A958D;
+      --border: rgba(255, 255, 255, 0.08);
+      --accent: #D96B43;
+      --accent-bright: #FF8A5B;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -31,10 +37,11 @@
     }
     .container { max-width: 480px; }
     .code {
+      font-family: 'Instrument Serif', Georgia, serif;
       font-size: 8rem;
-      font-weight: 800;
+      font-weight: 400;
       letter-spacing: -0.04em;
-      background: linear-gradient(135deg, var(--accent), #a78bfa);
+      background: linear-gradient(135deg, var(--accent-bright), var(--accent));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -45,6 +52,7 @@
       font-size: 1.5rem;
       font-weight: 600;
       margin-bottom: 1rem;
+      color: var(--fg);
     }
     p {
       color: var(--muted);
@@ -55,8 +63,8 @@
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.875rem;
       color: var(--muted);
-      background: #151c2e;
-      border: 1px solid #1e293b;
+      background: var(--surface);
+      border: 1px solid var(--border);
       border-radius: 0.75rem;
       padding: 1.25rem;
       text-align: left;
@@ -68,17 +76,18 @@
       align-items: center;
       gap: 0.5rem;
       padding: 0.75rem 1.5rem;
-      background: linear-gradient(135deg, var(--accent), #0096c7);
-      color: #0a0e1a;
+      background: var(--accent);
+      color: #080808;
       font-weight: 600;
       font-size: 0.875rem;
-      border-radius: 0.75rem;
+      border-radius: 9999px;
       text-decoration: none;
-      transition: transform 0.2s, box-shadow 0.2s;
+      transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
     }
     a:hover {
+      background: var(--accent-bright);
       transform: translateY(-2px);
-      box-shadow: 0 4px 16px rgba(34, 211, 238, 0.3);
+      box-shadow: 0 4px 16px rgba(217, 107, 67, 0.35);
     }
   </style>
 </head>

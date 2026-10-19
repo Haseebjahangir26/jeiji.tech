@@ -8,7 +8,7 @@ Live Domain: **[https://jeiji.tech](https://jeiji.tech)**
 
 ## 🌟 Features
 
-- **Design System & Aesthetics**: Dark mode first with electric blue/cyan accents (`#00b4d8`, `#22d3ee`), sleek typography (Inter + JetBrains Mono), smooth gradients, and glassmorphism navbar.
+- **Design System & Aesthetics**: Dark editorial-technical aesthetic with carbon black surfaces (`#080808`, `#111110`), warm alabaster typography (`#F4F0EA`), terracotta orange accents (`#D96B43`), hairline blueprint grids, and interactive particle mesh physics.
 - **Theme Switcher**: Dark / light mode toggle with system preference detection and `localStorage` persistence.
 - **Hero & Interactive Terminal**: Animated typewriter terminal simulating developer workflows (ML training, git commands, notebook sessions) with automatic `prefers-reduced-motion` accessibility support.
 - **Centralized Content Architecture**: All portfolio data (projects, skills, coursework, profile) is separated into `src/data/portfolio.js` so you can update anything without touching markup or CSS.
