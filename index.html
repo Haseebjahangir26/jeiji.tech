@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Haseeb Jahangir — CS Student & Aspiring AI/ML Engineer | jeiji.tech</title>
+  <meta name="description" content="Haseeb Jahangir (JJ) — Computer Science student at COMSATS University Islamabad. Building projects in AI/ML, data science, and full-stack development. Explore my portfolio at jeiji.tech." />
+  <meta name="author" content="Haseeb Jahangir" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://jeiji.tech" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Haseeb Jahangir — CS Student & Aspiring AI/ML Engineer" />
+  <meta property="og:description" content="Portfolio of Haseeb Jahangir (JJ) — Building projects in AI/ML, data science, and software development." />
+  <meta property="og:url" content="https://jeiji.tech" />
+  <meta property="og:site_name" content="jeiji.tech" />
+  <meta property="og:image" content="https://jeiji.tech/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Haseeb Jahangir — CS Student & Aspiring AI/ML Engineer" />
+  <meta name="twitter:description" content="Portfolio of Haseeb Jahangir (JJ) — Building projects in AI/ML, data science, and software development." />
+  <meta name="twitter:image" content="https://jeiji.tech/og-image.jpg" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/src/styles/index.css" />
+</head>
+<body>
+  <!-- Skip link -->
+  <a href="#main-content" class="skip-link" id="skip-nav">Skip to main content</a>
+
+  <!-- Scroll progress -->
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true">
+    <div class="scroll-progress__bar" id="scroll-progress-bar"></div>
+  </div>
+
+  <!-- Navigation -->
+  <header class="header" id="header">
+    <nav class="nav container" aria-label="Primary navigation">
+      <a href="#" class="nav__logo" aria-label="JJ — Home">
+        <span class="nav__logo-text">JJ</span>
+        <span class="nav__logo-dot">.</span>
+      </a>
+      <ul class="nav__links" id="nav-links" role="list">
+        <li><a href="#about" class="nav__link">About</a></li>
+        <li><a href="#projects" class="nav__link">Projects</a></li>
+        <li><a href="#skills" class="nav__link">Skills</a></li>
+        <li><a href="#education" class="nav__link">Education</a></li>
+        <li><a href="#contact" class="nav__link">Contact</a></li>
+      </ul>
+      <div class="nav__actions">
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode" type="button">
+          <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="12" cy="12" r="5" /><line x1="12" y1="1" x2="12" y2="3" /><line x1="12" y1="21" x2="12" y2="23" /><line x1="4.22" y1="4.22" x2="5.64" y2="5.64" /><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" /><line x1="1" y1="12" x2="3" y2="12" /><line x1="21" y1="12" x2="23" y2="12" /><line x1="4.22" y1="19.78" x2="5.64" y2="18.36" /><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+          </svg>
+          <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+        </button>
+        <button class="nav__hamburger" id="nav-hamburger" aria-label="Toggle menu" aria-expanded="false" type="button">
+          <span class="nav__hamburger-line"></span>
+          <span class="nav__hamburger-line"></span>
+          <span class="nav__hamburger-line"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <!-- Hero Section -->
+    <section class="hero" id="hero" aria-label="Introduction">
+      <div class="hero__container container">
+        <div class="hero__content">
+          <div class="hero__greeting reveal">
+            <span class="hero__greeting-line"></span>
+            <span class="hero__greeting-text">Hi, I'm</span>
+          </div>
+          <h1 class="hero__name reveal">Haseeb Jahangir</h1>
+          <p class="hero__title reveal">Computer Science Student &amp; Aspiring AI/ML Engineer</p>
+          <p class="hero__bio reveal">
+            I build practical projects in machine learning, data science, and software engineering.
+            Currently studying at COMSATS University Islamabad, exploring how technology can solve real-world problems.
+          </p>
+          <div class="hero__cta reveal">
+            <a href="#projects" class="btn btn--primary" id="hero-projects-btn">View Projects</a>
+            <a href="#contact" class="btn btn--outline" id="hero-contact-btn">Get in Touch</a>
+          </div>
+          <div class="hero__social reveal">
+            <a href="https://github.com/haseebjahangir26" target="_blank" rel="noopener noreferrer" class="hero__social-link" aria-label="GitHub profile">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="hero__visual reveal">
+          <div class="hero__terminal" aria-hidden="true">
+            <div class="terminal__header">
+              <div class="terminal__dots">
+                <span class="terminal__dot terminal__dot--red"></span>
+                <span class="terminal__dot terminal__dot--yellow"></span>
+                <span class="terminal__dot terminal__dot--green"></span>
+              </div>
+              <span class="terminal__title">terminal</span>
+            </div>
+            <div class="terminal__body">
+              <div class="terminal__line">
+                <span class="terminal__prompt">$</span>
+                <span class="terminal__text" id="terminal-text"></span>
+                <span class="terminal__cursor">▋</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hero__bg-glow" aria-hidden="true"></div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about" id="about" aria-labelledby="about-heading">
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="section__number">01.</span>
+          <h2 class="section__title" id="about-heading">About Me</h2>
+          <div class="section__line"></div>
+        </div>
+        <div class="about__content">
+          <div class="about__text reveal">
+            <p>
+              I'm a Computer Science student at <strong>COMSATS University Islamabad</strong>, driven by curiosity for artificial intelligence, machine learning, and building practical software that solves real problems.
+            </p>
+            <p>
+              I enjoy turning ideas into working projects — from data-driven dashboards and predictive models to full-stack applications. I'm always exploring new technologies and refining my engineering skills.
+            </p>
+            <p>
+              My long-term goal is to build impactful products and pursue international engineering opportunities, particularly in AI/ML and software development.
+            </p>
+          </div>
+          <div class="about__avatar reveal">
+            <div class="about__avatar-frame">
+              <div class="about__avatar-initials" aria-label="JJ avatar">JJ</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section projects" id="projects" aria-labelledby="projects-heading">
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="section__number">02.</span>
+          <h2 class="section__title" id="projects-heading">Featured Projects</h2>
+          <div class="section__line"></div>
+        </div>
+        <div class="projects__filters reveal" role="group" aria-label="Filter projects by category">
+          <button class="projects__filter projects__filter--active" data-filter="all" id="filter-all">All</button>
+          <button class="projects__filter" data-filter="ml" id="filter-ml">Machine Learning</button>
+          <button class="projects__filter" data-filter="web" id="filter-web">Web / Data</button>
+        </div>
+        <div class="projects__grid" id="projects-grid">
+          <!-- Cards injected by JS from data file -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section skills" id="skills" aria-labelledby="skills-heading">
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="section__number">03.</span>
+          <h2 class="section__title" id="skills-heading">Technical Skills</h2>
+          <div class="section__line"></div>
+        </div>
+        <div class="skills__grid" id="skills-grid">
+          <!-- Injected by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="section education" id="education" aria-labelledby="education-heading">
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="section__number">04.</span>
+          <h2 class="section__title" id="education-heading">Education</h2>
+          <div class="section__line"></div>
+        </div>
+        <div class="education__card reveal">
+          <div class="education__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15v3.75m0 0v1.5a1.5 1.5 0 001.5 1.5h7.5a1.5 1.5 0 001.5-1.5v-1.5m-10.5 0h10.5" /></svg>
+          </div>
+          <div class="education__details">
+            <h3 class="education__degree">Bachelor of Science in Computer Science</h3>
+            <p class="education__university">COMSATS University Islamabad</p>
+            <p class="education__period">Expected Graduation: 2028</p>
+            <div class="education__coursework">
+              <h4 class="education__coursework-title">Relevant Coursework</h4>
+              <ul class="education__coursework-list" role="list">
+                <li>Data Structures &amp; Algorithms</li>
+                <li>Database Systems</li>
+                <li>Operating Systems</li>
+                <li>Computer Organization &amp; Assembly Language</li>
+                <li>Machine Learning</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact" aria-labelledby="contact-heading">
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="section__number">05.</span>
+          <h2 class="section__title" id="contact-heading">Get in Touch</h2>
+          <div class="section__line"></div>
+        </div>
+        <div class="contact__content reveal">
+          <p class="contact__text">
+            I'm currently open to internship opportunities, collaborations, and conversations about AI/ML, software engineering, or anything tech-related. Feel free to reach out!
+          </p>
+          <a href="mailto:contact@jeiji.tech" class="btn btn--primary btn--lg" id="contact-email-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" class="btn__icon"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            Say Hello
+          </a>
+          <p class="contact__email-note">
+            <small>Email: <span class="contact__placeholder">contact@jeiji.tech</span> — <em>update with your preferred email</em></small>
+          </p>
+          <div class="contact__social">
+            <a href="https://github.com/haseebjahangir26" target="_blank" rel="noopener noreferrer" class="contact__social-link" aria-label="GitHub" id="contact-github">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__content">
+        <p class="footer__text">
+          Designed &amp; built by <strong>Haseeb Jahangir</strong>
+        </p>
+        <p class="footer__copyright">
+          &copy; <span id="footer-year">2026</span> jeiji.tech
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script type="module" src="/src/js/main.js"></script>
+</body>
+</html>

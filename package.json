@@ -1,0 +1,17 @@
+{
+  "name": "jeiji-tech",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Personal developer portfolio for Haseeb Jahangir — jeiji.tech",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "author": "Haseeb Jahangir",
+  "license": "MIT",
+  "devDependencies": {
+    "vite": "^8.3.4"
+  }
+}
