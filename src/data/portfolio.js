@@ -8,7 +8,7 @@ export const siteConfig = {
   name: "Haseeb Jahangir",
   displayName: "JJ",
   title: "Computer Science Student | Aspiring AI/ML Engineer | Software Developer",
-  email: "contact@jeiji.tech", // UPDATE: Replace with your real email
+  email: "haseebjahangir.dev@gmail.com",
   github: "https://github.com/haseebjahangir26",
   // linkedin: "", // ADD: Your LinkedIn profile URL when available
   location: "Islamabad, Pakistan",
