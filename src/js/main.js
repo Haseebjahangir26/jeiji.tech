@@ -2,11 +2,10 @@
  * jeiji.tech — Main Orchestration Script
  * - Lenis Smooth Scroll & Fixed Top Progress Bar
  * - Auto-Hiding Pill Navbar with directional scroll awareness
- * - Blur-to-Crisp Editorial Text Reveals
- * - Hero Halftone Dot-Matrix Canvas initialization
- * - 3-State Morphing Particle Canvas initialization
+ * - Hero Halftone Still Dot-Matrix Portrait initialization
+ * - Static Topological Particle Canvas initialization
  * - Projects rendering, filtering, & minimal rows table
- * - Interactive Terminal & Accordions
+ * - Static Terminal & Accordions
  */
 
 import Lenis from 'lenis';
@@ -158,30 +157,11 @@ function initNavbar() {
 }
 
 // ============================================================
-// 3. Blur-to-Crisp Text Reveals
+// 3. Crisp Text Reveal (Instant display, no motion lag)
 // ============================================================
 function initBlurReveals() {
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const headings = document.querySelectorAll('.reveal-blur');
-
-  if (prefersReducedMotion) {
-    headings.forEach((h) => h.classList.add('reveal-blur--visible'));
-    return;
-  }
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('reveal-blur--visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
-  );
-
-  headings.forEach((h) => observer.observe(h));
+  headings.forEach((h) => h.classList.add('reveal-blur--visible'));
 }
 
 // ============================================================
@@ -324,54 +304,12 @@ function initProjectSwipeListener() {
 }
 
 // ============================================================
-// 6. Interactive Developer Terminal
+// 6. Developer Terminal (Clean Static Display)
 // ============================================================
 function initTerminal() {
   const el = document.getElementById('terminal-text');
   if (!el) return;
-
-  let cmdIndex = 0;
-  const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-
-  async function typeLoop() {
-    if (!isMotionActive) {
-      el.textContent = terminalCommands[cmdIndex % terminalCommands.length];
-      return;
-    }
-
-    const cmd = terminalCommands[cmdIndex % terminalCommands.length];
-    el.textContent = '';
-
-    // Typing
-    for (let i = 0; i <= cmd.length; i++) {
-      if (!isMotionActive) {
-        el.textContent = cmd;
-        return;
-      }
-      el.textContent = cmd.slice(0, i);
-      await sleep(35 + Math.random() * 25);
-    }
-    await sleep(2600);
-
-    // Backspacing
-    for (let i = cmd.length; i >= 0; i--) {
-      if (!isMotionActive) {
-        el.textContent = cmd;
-        return;
-      }
-      el.textContent = cmd.slice(0, i);
-      await sleep(15);
-    }
-    await sleep(400);
-
-    cmdIndex++;
-    if (isMotionActive) {
-      typeLoop();
-    }
-  }
-
-  typeLoop();
-  window.__resumeTerminal = typeLoop;
+  el.textContent = terminalCommands[0] || 'python train_forecaster.py --dataset=grid_consumption';
 }
 
 // ============================================================
@@ -458,72 +396,11 @@ function initFooter() {
 }
 
 // ============================================================
-// 10. Fixed Bottom-Right Motion Control Toggle
+// Main Execution
 // ============================================================
 let halftoneInstance = null;
 let particlesInstance = null;
-let isMotionActive = true;
 
-function initMotionControl() {
-  const btn = document.getElementById('motion-toggle-btn');
-  const bullet = document.getElementById('motion-toggle-bullet');
-  const text = document.getElementById('motion-toggle-text');
-  if (!btn) return;
-
-  const stored = localStorage.getItem('motion');
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  isMotionActive = stored ? stored === 'on' : !prefersReduced;
-
-  function updateMotionState(active) {
-    if (active) {
-      document.documentElement.removeAttribute('data-motion');
-      btn.classList.remove('fixed-motion-toggle--off');
-      btn.setAttribute('aria-pressed', 'true');
-      if (bullet) {
-        bullet.textContent = '■';
-        bullet.style.color = 'var(--accent-orange)';
-      }
-      if (text) {
-        text.textContent = 'MOTION ON';
-        text.style.color = 'var(--text-primary)';
-      }
-
-      // Resume particle & canvas engines
-      halftoneInstance?.resumeMotion?.();
-      particlesInstance?.resumeMotion?.();
-      window.__resumeTerminal?.();
-    } else {
-      document.documentElement.setAttribute('data-motion', 'off');
-      btn.classList.add('fixed-motion-toggle--off');
-      btn.setAttribute('aria-pressed', 'false');
-      if (bullet) {
-        bullet.textContent = '□';
-        bullet.style.color = 'var(--text-mono)';
-      }
-      if (text) {
-        text.textContent = 'MOTION OFF';
-        text.style.color = 'var(--text-mono)';
-      }
-
-      // Freeze particle undulating movement while keeping full page scroll & swipe active
-      halftoneInstance?.pauseMotion?.();
-      particlesInstance?.pauseMotion?.();
-    }
-  }
-
-  // Initial setup
-  updateMotionState(isMotionActive);
-
-  btn.addEventListener('click', () => {
-    isMotionActive = !isMotionActive;
-    localStorage.setItem('motion', isMotionActive ? 'on' : 'off');
-    updateMotionState(isMotionActive);
-  });
-}
-
-// ============================================================
-// Main Execution
-// ============================================================
 function init() {
   initSmoothScroll();
   initNavbar();
@@ -538,7 +415,7 @@ function init() {
   initEmailCopy();
   initFooter();
 
-  // Initialize Canvases
+  // Initialize Canvases (Still, zero-overhead renders)
   try {
     halftoneInstance = new HalftonePortrait('halftone-canvas', '/hero-character.jpg');
   } catch (err) {
@@ -550,9 +427,6 @@ function init() {
   } catch (err) {
     console.error('MorphingParticleCanvas initialization error:', err);
   }
-
-  // Initialize Motion Control Toggle
-  initMotionControl();
 }
 
 if (document.readyState === 'loading') {
