@@ -79,6 +79,8 @@ function initNavbar() {
   const linksContainer = document.querySelector('.pill-navbar__links');
 
   let activeLink = null;
+  let isClickScrolling = false;
+  let clickScrollTimer = null;
 
   function moveSliderTo(targetLink) {
     if (!slider || !linksContainer || !targetLink) return;
@@ -103,23 +105,17 @@ function initNavbar() {
     moveSliderTo(link);
   }
 
-  // Hover animations: slider swiftly tracks mouse hover and springs back to active link
+  // Click on link: immediately glide slider to target link and temporarily lock observer
   navLinks.forEach((link) => {
-    link.addEventListener('mouseenter', () => {
-      moveSliderTo(link);
-    });
     link.addEventListener('click', () => {
       setActiveLink(link);
+      isClickScrolling = true;
+      if (clickScrollTimer) clearTimeout(clickScrollTimer);
+      clickScrollTimer = setTimeout(() => {
+        isClickScrolling = false;
+      }, 1300);
     });
   });
-
-  if (linksContainer) {
-    linksContainer.addEventListener('mouseleave', () => {
-      if (activeLink) {
-        moveSliderTo(activeLink);
-      }
-    });
-  }
 
   window.addEventListener('resize', () => {
     if (activeLink) {
@@ -162,6 +158,9 @@ function initNavbar() {
   const sections = document.querySelectorAll('section[id]');
   const activeObserver = new IntersectionObserver(
     (entries) => {
+      // If user clicked a nav link, prevent passing sections from hijacking the slider
+      if (isClickScrolling) return;
+
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           const id = entry.target.id;
