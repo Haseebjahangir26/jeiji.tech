@@ -16,7 +16,6 @@ import {
   projects,
   skillsGrouped,
   education,
-  terminalCommands,
 } from '../data/portfolio.js';
 
 // ============================================================
@@ -307,16 +306,7 @@ function initProjectFilters() {
 }
 
 // ============================================================
-// 6. Developer Terminal (Clean Static Display)
-// ============================================================
-function initTerminal() {
-  const el = document.getElementById('terminal-text');
-  if (!el) return;
-  el.textContent = terminalCommands[0] || 'python train_forecaster.py --dataset=grid_consumption';
-}
-
-// ============================================================
-// 7. Academic Foundation & Coursework + Skills Accordions
+// 6. Academic Foundation & Coursework + Skills Accordions
 // ============================================================
 function renderAcademicDetails() {
   const courseContainer = document.getElementById('course-list-container');
@@ -410,7 +400,6 @@ function init() {
   renderHeroStats();
   renderProjects();
   initProjectFilters();
-  initTerminal();
   renderAcademicDetails();
   initAccordions();
   initEmailCopy();

@@ -165,13 +165,3 @@ export const education = {
     },
   ],
 };
-
-export const terminalCommands = [
-  "python train_forecaster.py --dataset=grid_consumption --epochs=60",
-  "python -m evaluation.evaluate_churn --roc-auc --confusion-matrix",
-  "git commit -m 'feat(halftone): high-density grain dispersion and scroll dissolution'",
-  "npm run build && vite preview --port 3000",
-  "python -c 'import torch; print(f\"CUDA Enabled: {torch.cuda.is_available()}\")'",
-  "jupyter lab --no-browser --port=8888",
-  "curl -X GET https://jeiji.tech/api/v1/health | jq .status",
-];
