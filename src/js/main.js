@@ -104,7 +104,7 @@ function initNavbar() {
     moveSliderTo(link);
   }
 
-  // Click on link: immediately glide slider to target link and temporarily lock observer
+  // Click on link: immediately glide slider to target link and temporarily lock scroll spy
   navLinks.forEach((link) => {
     link.addEventListener('click', () => {
       setActiveLink(link);
@@ -112,9 +112,12 @@ function initNavbar() {
       if (clickScrollTimer) clearTimeout(clickScrollTimer);
       clickScrollTimer = setTimeout(() => {
         isClickScrolling = false;
-      }, 1300);
+      }, 1000);
     });
   });
+
+  window.addEventListener('wheel', () => { isClickScrolling = false; }, { passive: true });
+  window.addEventListener('touchmove', () => { isClickScrolling = false; }, { passive: true });
 
   window.addEventListener('resize', () => {
     if (activeLink) {
@@ -153,34 +156,93 @@ function initNavbar() {
     });
   }
 
-  // Active section indicator
-  const sections = document.querySelectorAll('section[id]');
-  const activeObserver = new IntersectionObserver(
-    (entries) => {
-      // If user clicked a nav link, prevent passing sections from hijacking the slider
-      if (isClickScrolling) return;
+  // Deterministic Active Section Scroll Spy
+  const trackedSections = [
+    { id: 'about', el: document.getElementById('about') },
+    { id: 'work', el: document.getElementById('work') },
+    { id: 'academic', el: document.getElementById('academic') },
+    { id: 'contact', el: document.getElementById('contact') },
+  ];
 
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const id = entry.target.id;
-          if (id === 'hero') {
-            const first = navLinks[0];
-            if (first) setActiveLink(first);
-          } else {
-            const matched = Array.from(navLinks).find(
-              (link) => link.dataset.nav === id || link.getAttribute('href') === `#${id}`
-            );
-            if (matched) {
-              setActiveLink(matched);
-            }
-          }
+  function updateActiveNavOnScroll() {
+    if (isClickScrolling) return;
+
+    const scrollY = window.scrollY || window.pageYOffset;
+    const windowHeight = window.innerHeight;
+    const documentHeight = document.documentElement.scrollHeight;
+
+    // 1. Very top of page (hero / upper about) -> 01 / About
+    if (scrollY < 140) {
+      if (activeLink !== navLinks[0]) {
+        setActiveLink(navLinks[0]);
+      }
+      return;
+    }
+
+    // 2. Very bottom of page -> 04 / Contact
+    if (scrollY + windowHeight >= documentHeight - 60) {
+      const contactLink = Array.from(navLinks).find((l) => l.dataset.nav === 'contact');
+      if (contactLink && activeLink !== contactLink) {
+        setActiveLink(contactLink);
+      }
+      return;
+    }
+
+    // 3. Focal line (reading line in upper viewport, beneath navbar)
+    const focalY = Math.min(280, windowHeight * 0.35);
+    let currentId = null;
+
+    for (let i = 0; i < trackedSections.length; i++) {
+      const item = trackedSections[i];
+      if (!item.el) continue;
+      const rect = item.el.getBoundingClientRect();
+      if (rect.top <= focalY && rect.bottom > focalY) {
+        currentId = item.id;
+        break;
+      }
+    }
+
+    // Fallback if between sections
+    if (!currentId) {
+      for (let i = trackedSections.length - 1; i >= 0; i--) {
+        const item = trackedSections[i];
+        if (!item.el) continue;
+        const rect = item.el.getBoundingClientRect();
+        if (rect.top <= focalY) {
+          currentId = item.id;
+          break;
         }
-      });
-    },
-    { threshold: 0.25, rootMargin: '-60px 0px -40% 0px' }
-  );
+      }
+    }
 
-  sections.forEach((sec) => activeObserver.observe(sec));
+    if (!currentId) {
+      currentId = 'about';
+    }
+
+    const matchedLink = Array.from(navLinks).find(
+      (l) => l.dataset.nav === currentId || l.getAttribute('href') === `#${currentId}`
+    );
+
+    if (matchedLink && matchedLink !== activeLink) {
+      setActiveLink(matchedLink);
+    }
+  }
+
+  let scrollTicking = false;
+  function handleScroll() {
+    if (!scrollTicking) {
+      requestAnimationFrame(() => {
+        updateActiveNavOnScroll();
+        scrollTicking = false;
+      });
+      scrollTicking = true;
+    }
+  }
+
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  if (lenisInstance) {
+    lenisInstance.on('scroll', handleScroll);
+  }
 
   // Initialize position on load
   const initial = document.querySelector('.pill-navbar__link--active') || navLinks[0];
