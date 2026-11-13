@@ -63,11 +63,11 @@
       <span>JJ</span><span class="pill-navbar__logo-dot">.</span>
     </a>
     <ul class="pill-navbar__links" role="list">
+      <li class="pill-navbar__slider" id="pill-navbar-slider" aria-hidden="true"></li>
       <li><a href="#about" class="pill-navbar__link" data-nav="about">01 / About</a></li>
       <li><a href="#work" class="pill-navbar__link" data-nav="work">02 / Work</a></li>
-      <li><a href="#systems" class="pill-navbar__link" data-nav="systems">03 / Physics</a></li>
-      <li><a href="#academic" class="pill-navbar__link" data-nav="academic">04 / Curriculum</a></li>
-      <li><a href="#contact" class="pill-navbar__link" data-nav="contact">05 / Contact</a></li>
+      <li><a href="#academic" class="pill-navbar__link" data-nav="academic">03 / Curriculum</a></li>
+      <li><a href="#contact" class="pill-navbar__link" data-nav="contact">04 / Contact</a></li>
     </ul>
     <div class="pill-navbar__cta">
       <a href="#contact" class="pill-btn pill-btn--primary">
@@ -88,9 +88,8 @@
     <ul class="mobile-nav-drawer__links" role="list">
       <li><a href="#about" class="mobile-nav-drawer__link">01 / Philosophy</a></li>
       <li><a href="#work" class="mobile-nav-drawer__link">02 / Selected Work</a></li>
-      <li><a href="#systems" class="mobile-nav-drawer__link">03 / Kinetic Lab</a></li>
-      <li><a href="#academic" class="mobile-nav-drawer__link">04 / Academic</a></li>
-      <li><a href="#contact" class="mobile-nav-drawer__link">05 / Contact</a></li>
+      <li><a href="#academic" class="mobile-nav-drawer__link">03 / Academic</a></li>
+      <li><a href="#contact" class="mobile-nav-drawer__link">04 / Contact</a></li>
     </ul>
     <button class="pill-btn" id="mobile-drawer-close" type="button">Close Drawer [×]</button>
   </div>
@@ -332,95 +331,7 @@
     </section>
 
     <!-- ============================================================
-         Section 03: 3-State Morphing Particle Canvas (Interactive Systems)
-         ============================================================ -->
-    <section class="section systems" id="systems" aria-labelledby="heading-systems">
-      <div class="container">
-        <!-- Blueprint Divider -->
-        <div class="section-blueprint-divider">
-          <div class="section-blueprint-divider__index">
-            <span class="section-blueprint-divider__bullet">■</span>
-            <span>03 / INTERACTIVE SYSTEMS</span>
-          </div>
-          <div class="section-blueprint-divider__tag">CANVAS // 3D HYBRID ENGINE</div>
-        </div>
-
-        <!-- Asymmetric 12-Column Split -->
-        <div class="editorial-split-grid">
-          <!-- Left: Sticky Two-Tone Serif Headline -->
-          <div class="editorial-split-grid__left editorial-split-grid__left--sticky">
-            <div class="mono-label">
-              <span class="mono-label__bullet">■</span>
-              <span>GENERATIVE DIMENSIONS</span>
-            </div>
-            <h2 class="editorial-heading editorial-heading--h2 reveal-blur" id="heading-systems">
-              <span class="editorial-heading__line-1">Kinetic Physics.</span>
-              <span class="editorial-heading__line-2 reveal-blur__stagger">Mathematical Substrates.</span>
-            </h2>
-            <p class="editorial-body">
-              Explore 3 generative topological configurations representing core engineering disciplines. Switch modes below to morph the 1,156-particle system in real time.
-            </p>
-
-            <!-- Mode Selector Tab Bar -->
-            <div class="particle-lab__tabs" role="tablist" aria-label="Particle state configurations">
-              <button class="particle-tab particle-tab--active" data-state="build" id="tab-build" role="tab" aria-selected="true" type="button">
-                <span class="particle-tab__index">01</span>
-                <span>Build</span>
-              </button>
-              <button class="particle-tab" data-state="teach" id="tab-teach" role="tab" aria-selected="false" type="button">
-                <span class="particle-tab__index">02</span>
-                <span>Teach</span>
-              </button>
-              <button class="particle-tab" data-state="connect" id="tab-connect" role="tab" aria-selected="false" type="button">
-                <span class="particle-tab__index">03</span>
-                <span>Connect</span>
-              </button>
-            </div>
-          </div>
-
-          <!-- Right: Interactive Canvas & Crossfading Caption Box -->
-          <div class="editorial-split-grid__right">
-            <div class="particle-lab" id="particle-lab-card">
-              <span class="corner-cross corner-cross--tl">+</span>
-              <span class="corner-cross corner-cross--tr">+</span>
-              <span class="corner-cross corner-cross--bl">+</span>
-              <span class="corner-cross corner-cross--br">+</span>
-
-              <div class="particle-lab__header">
-                <span class="mono-label" style="margin-bottom:0">
-                  <span class="mono-label__bullet">■</span>
-                  <span id="particle-mode-code">MODE // 01 : STRUCTURE</span>
-                </span>
-                <span class="mono-label" id="particle-mode-badge" style="margin-bottom:0">
-                  3D SINE-WAVE GRID // FREQ: 0.038
-                </span>
-              </div>
-
-              <div class="particle-lab__canvas-wrap">
-                <canvas id="particle-canvas" class="particle-lab__canvas" aria-label="3D Morphing particle canvas responding to cursor repulsion"></canvas>
-                <div class="particle-lab__hud">
-                  <div>STRUCTURE // STATIC</div>
-                  <div>NODES // 1,156</div>
-                </div>
-              </div>
-
-              <!-- Crossfading Editorial Caption -->
-              <div class="particle-lab__caption" id="particle-caption-wrap">
-                <div class="particle-caption-headline" id="particle-mode-headline">
-                  Undulating Tensor Manifold
-                </div>
-                <div class="particle-caption-desc" id="particle-mode-desc">
-                  Architecting resilient algorithmic foundations. 3D undulating tensor manifolds mapped through continuous sinusoidal transforms, visualizing the mathematical substrate of deep representation learning.
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================================
-         Section 04: Academic Foundation & Curriculum
+         Section 03: Academic Foundation & Curriculum
          ============================================================ -->
     <section class="section academic" id="academic" aria-labelledby="heading-academic">
       <div class="container">
@@ -428,7 +339,7 @@
         <div class="section-blueprint-divider">
           <div class="section-blueprint-divider__index">
             <span class="section-blueprint-divider__bullet">■</span>
-            <span>04 / CURRICULUM &amp; CAPABILITIES</span>
+            <span>03 / CURRICULUM &amp; CAPABILITIES</span>
           </div>
           <div class="section-blueprint-divider__tag">COMSATS UNIVERSITY ISLAMABAD</div>
         </div>
@@ -534,7 +445,7 @@
     </section>
 
     <!-- ============================================================
-         Section 05: Transmission / Contact
+         Section 04: Transmission / Contact
          ============================================================ -->
     <section class="section contact" id="contact" aria-labelledby="heading-contact">
       <div class="container">
@@ -542,7 +453,7 @@
         <div class="section-blueprint-divider">
           <div class="section-blueprint-divider__index">
             <span class="section-blueprint-divider__bullet">■</span>
-            <span>05 / INITIATE TRANSMISSION</span>
+            <span>04 / INITIATE TRANSMISSION</span>
           </div>
           <div class="section-blueprint-divider__tag">AVAILABILITY // OPEN</div>
         </div>

@@ -39,39 +39,6 @@ export const stats = [
   },
 ];
 
-export const particleTabs = {
-  build: {
-    id: "build",
-    code: "01",
-    tabLabel: "Build",
-    modeName: "STRUCTURE",
-    headline: "Undulating Tensor Manifold",
-    caption:
-      "Architecting resilient algorithmic foundations. 3D undulating tensor manifolds mapped through continuous sinusoidal transforms, visualizing the mathematical substrate of deep representation learning.",
-    badge: "3D SINE-WAVE GRID // FREQ: 0.038",
-  },
-  teach: {
-    id: "teach",
-    code: "02",
-    tabLabel: "Teach",
-    modeName: "RIPPLE",
-    headline: "Concentric Gradient Shockwaves",
-    caption:
-      "Propagating knowledge and gradient updates. Concentric kinetic shockwaves radiating outward from the central learning nexus, representing backpropagation wavefronts across parameterized space.",
-    badge: "POLAR EXPANSION // 12 DISCRETE RINGS",
-  },
-  connect: {
-    id: "connect",
-    code: "03",
-    tabLabel: "Connect",
-    modeName: "CONSTELLATION",
-    headline: "Rotating Topological Sphere",
-    caption:
-      "Synthesizing global networks and real-world intelligence. Multi-node topological sphere with dynamic proximity telemetry and real-time line tessellation across high-dimensional latent space.",
-    badge: "FIBONACCI SPHERE // DIST THRESHOLD: 42PX",
-  },
-};
-
 export const projects = [
   {
     id: "electricity-forecasting",

@@ -10,7 +10,6 @@
 
 import Lenis from 'lenis';
 import { HalftonePortrait } from './halftone.js';
-import { MorphingParticleCanvas } from './particles.js';
 import {
   siteConfig,
   stats,
@@ -69,41 +68,64 @@ function initSmoothScroll() {
 }
 
 // ============================================================
-// 2. Auto-Hiding Pill Navbar (Scroll Direction Aware)
+// 2. Fixed Pill Navbar with Swift Glass Slider
 // ============================================================
 function initNavbar() {
-  const navbar = document.getElementById('pill-navbar');
   const navLinks = document.querySelectorAll('.pill-navbar__link');
   const toggleBtn = document.getElementById('pill-navbar-toggle');
   const drawer = document.getElementById('mobile-nav-drawer');
   const drawerClose = document.getElementById('mobile-drawer-close');
+  const slider = document.getElementById('pill-navbar-slider');
+  const linksContainer = document.querySelector('.pill-navbar__links');
 
-  let lastScrollY = window.scrollY;
-  let isNavHidden = false;
+  let activeLink = null;
 
-  const onScroll = () => {
-    const currentScrollY = window.scrollY;
-    const delta = currentScrollY - lastScrollY;
+  function moveSliderTo(targetLink) {
+    if (!slider || !linksContainer || !targetLink) return;
+    const linkRect = targetLink.getBoundingClientRect();
+    const containerRect = linksContainer.getBoundingClientRect();
 
-    if (currentScrollY > 90) {
-      if (delta > 6 && !isNavHidden) {
-        // Scrolling DOWN -> Hide navbar
-        navbar.classList.add('pill-navbar--hidden');
-        isNavHidden = true;
-      } else if (delta < -5 && isNavHidden) {
-        // Scrolling UP -> Slide navbar back in immediately
-        navbar.classList.remove('pill-navbar--hidden');
-        isNavHidden = false;
+    const x = linkRect.left - containerRect.left;
+    const y = linkRect.top - containerRect.top;
+    const width = linkRect.width;
+    const height = linkRect.height;
+
+    slider.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+    slider.style.width = `${width}px`;
+    slider.style.height = `${height}px`;
+    slider.style.opacity = '1';
+  }
+
+  function setActiveLink(link) {
+    if (!link) return;
+    activeLink = link;
+    navLinks.forEach((l) => l.classList.toggle('pill-navbar__link--active', l === link));
+    moveSliderTo(link);
+  }
+
+  // Hover animations: slider swiftly tracks mouse hover and springs back to active link
+  navLinks.forEach((link) => {
+    link.addEventListener('mouseenter', () => {
+      moveSliderTo(link);
+    });
+    link.addEventListener('click', () => {
+      setActiveLink(link);
+    });
+  });
+
+  if (linksContainer) {
+    linksContainer.addEventListener('mouseleave', () => {
+      if (activeLink) {
+        moveSliderTo(activeLink);
       }
-    } else {
-      navbar.classList.remove('pill-navbar--hidden');
-      isNavHidden = false;
+    });
+  }
+
+  window.addEventListener('resize', () => {
+    if (activeLink) {
+      moveSliderTo(activeLink);
     }
-
-    lastScrollY = currentScrollY;
-  };
-
-  window.addEventListener('scroll', onScroll, { passive: true });
+  });
 
   // Mobile Drawer Toggle
   if (toggleBtn && drawer) {
@@ -143,10 +165,17 @@ function initNavbar() {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           const id = entry.target.id;
-          navLinks.forEach((link) => {
-            const matches = link.dataset.nav === id || link.getAttribute('href') === `#${id}`;
-            link.classList.toggle('pill-navbar__link--active', matches);
-          });
+          if (id === 'hero') {
+            const first = navLinks[0];
+            if (first) setActiveLink(first);
+          } else {
+            const matched = Array.from(navLinks).find(
+              (link) => link.dataset.nav === id || link.getAttribute('href') === `#${id}`
+            );
+            if (matched) {
+              setActiveLink(matched);
+            }
+          }
         }
       });
     },
@@ -154,6 +183,14 @@ function initNavbar() {
   );
 
   sections.forEach((sec) => activeObserver.observe(sec));
+
+  // Initialize position on load
+  const initial = document.querySelector('.pill-navbar__link--active') || navLinks[0];
+  if (initial) {
+    requestAnimationFrame(() => {
+      setActiveLink(initial);
+    });
+  }
 }
 
 // ============================================================
@@ -399,7 +436,6 @@ function initFooter() {
 // Main Execution
 // ============================================================
 let halftoneInstance = null;
-let particlesInstance = null;
 
 function init() {
   initSmoothScroll();
@@ -415,17 +451,11 @@ function init() {
   initEmailCopy();
   initFooter();
 
-  // Initialize Canvases (Still, zero-overhead renders)
+  // Initialize Canvas (Still, zero-overhead render)
   try {
     halftoneInstance = new HalftonePortrait('halftone-canvas', '/hero-character.jpg');
   } catch (err) {
     console.error('Halftone initialization error:', err);
-  }
-
-  try {
-    particlesInstance = new MorphingParticleCanvas('particle-canvas');
-  } catch (err) {
-    console.error('MorphingParticleCanvas initialization error:', err);
   }
 }
 
